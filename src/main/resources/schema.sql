@@ -27,9 +27,9 @@ Description varchar(250),
 Category_Id int not null,
 Priority_Id int not null,
 isCompleted Boolean default false,
-Foreign Key(User_Id) References Users(Id),
-Foreign Key(Category_Id) References Categories(Id),
-Foreign Key(Priority_Id) References Priorities(Id)
+ Foreign Key(User_Id) References Users(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+ Foreign Key(Category_Id) References Categories(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+ Foreign Key(Priority_Id) References Priorities(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 Create Table Subtasks
@@ -40,8 +40,8 @@ Title varchar(250),
 Description varchar(250),
 Priority_Id int not null,
 isCompleted Boolean default false,
-Foreign Key(Task_Id) References Tasks(Id),
-Foreign Key(Priority_Id) References Priorities(Id)
+Foreign Key(Task_Id) References Tasks(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+Foreign Key(Priority_Id) References Priorities(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 Create Table TaskRecurrence
@@ -51,7 +51,7 @@ Due_Date DATE,
 Reccurence_Type varchar(50),
 Next_Due_Date DATE,
 Primary Key(Task_Id,Due_Date),
-Foreign Key(Task_Id) References Tasks(Id)
+Foreign Key(Task_Id) References Tasks(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 --Tables test
