@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "Users")
@@ -18,6 +20,8 @@ public class Users {
     private  String email;
 
     private String password;
+
+
 
     public Users() {
 
@@ -63,4 +67,6 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

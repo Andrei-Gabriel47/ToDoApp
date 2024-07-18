@@ -1,16 +1,27 @@
 package com.bearingpoint.todo.entity;
 
+import jakarta.persistence.*;
+
+import org.springframework.data.annotation.Id;
+
+@Entity
+@Table(name="tasks")
 public class Tasks {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+  private int id;
 
-  private final int id;
-  private final int user_id;
-  private final String title;
-  private final String description ;
-  private final int category_id;
-  private final int priority_id;
-  private final String isCompleted;
 
-    public Tasks(int id, int user_id, String title, String description, int category_id, int priority_id, String isCompleted) {
+  private int user_id;
+  private String title;
+  private String description ;
+  private int category_id;
+  private int priority_id;
+  private boolean isCompleted;
+
+    public Tasks() {}
+
+    public Tasks(int id, int user_id, String title, String description, int category_id, int priority_id, boolean isCompleted) {
         this.id = id;
         this.user_id = user_id;
         this.title = title;
@@ -24,7 +35,7 @@ public class Tasks {
         return id;
     }
 
-    public int getUser_id() {
+    public int getUser() {
         return user_id;
     }
 
@@ -44,7 +55,36 @@ public class Tasks {
         return priority_id;
     }
 
-    public String getIsCompleted() {
+    public Boolean getIsCompleted() {
         return isCompleted;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUser(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
+
+    public void setPriority_id(int priority_id) {
+        this.priority_id = priority_id;
+    }
+
+    public void setIsCompleted(Boolean isCompleted) {
+        this.isCompleted = isCompleted;
+    }
+
 }

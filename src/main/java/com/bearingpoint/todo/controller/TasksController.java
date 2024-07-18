@@ -1,12 +1,17 @@
 package com.bearingpoint.todo.controller;
 
 import com.bearingpoint.todo.entity.Tasks;
+import com.bearingpoint.todo.entity.Users;
 import com.bearingpoint.todo.service.TasksService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@RequestMapping("api/v1/task")
+@RestController
 public class TasksController {
     private final TasksService tasksService;
 
@@ -35,8 +40,13 @@ public class TasksController {
         tasksService.deleteTask(id);
     }
 
-    @PutMapping(path="{id}")
-    public void updateTask(@PathVariable("id") int id, @RequestBody Tasks taskToUpdate) {
-        tasksService.updateTask(id, taskToUpdate);
+    @PutMapping(path = "{id}")
+    public ResponseEntity<Void> updateTask(@PathVariable("id") int id, @RequestBody Tasks taskToUpdate) {
+        if (tasksService.getTaskById(id).isPresent()) {
+            tasksService.updateTask(id, taskToUpdate);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
