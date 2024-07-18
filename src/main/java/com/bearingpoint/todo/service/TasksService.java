@@ -1,6 +1,6 @@
 package com.bearingpoint.todo.service;
 
-import com.bearingpoint.todo.Repository.TasksRepository;
+import com.bearingpoint.todo.repository.TasksRepository;
 import com.bearingpoint.todo.entity.Tasks;
 import org.springframework.beans.factory.annotation.Autowired;
 

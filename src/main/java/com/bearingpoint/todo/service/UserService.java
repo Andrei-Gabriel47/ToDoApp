@@ -1,7 +1,8 @@
 package com.bearingpoint.todo.service;
 
-import com.bearingpoint.todo.entity.User;
-import com.bearingpoint.todo.Repository.UserRepository;
+
+import com.bearingpoint.todo.repository.UserRepository;
+import com.bearingpoint.todo.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +19,16 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void addUser(User user){
+    public void addUser(Users user){
+
         userRepository.save(user);
     }
 
-    public List<User> getAllUser(){
-        return  (List<User>) userRepository.findAll();
+    public List<Users> getAllUser(){
+        return  (List<Users>) userRepository.findAll();
     }
 
-    public Optional<User> getUserById(int id){
+    public Optional<Users> getUserById(int id){
         return userRepository.findById(id);
     }
 
@@ -34,9 +36,14 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public void updateUser(int id, User newUser){
-        if (userRepository.existsById(id)) {
-            userRepository.save(newUser);
+    public void updateUser(int id, Users newUser){
+        Optional<Users> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            Users existingUser = optionalUser.get();
+            existingUser.setUsername(newUser.getUsername());
+            existingUser.setEmail(newUser.getEmail());
+            existingUser.setPassword(newUser.getPassword());
+            userRepository.save(existingUser);
         }
     }
 }

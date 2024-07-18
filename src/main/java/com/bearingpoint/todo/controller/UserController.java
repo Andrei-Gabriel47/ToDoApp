@@ -1,8 +1,9 @@
-package com.bearingpoint.todo.api;
+package com.bearingpoint.todo.controller;
 
-import com.bearingpoint.todo.entity.User;
+import com.bearingpoint.todo.entity.Users;
 import com.bearingpoint.todo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,17 +19,17 @@ public class UserController {
     }
 
     @PostMapping
-    public void addUser(@RequestBody User user){
+    public void addUser(@RequestBody Users user){
         userService.addUser(user);
     }
 
     @GetMapping
-    public List<User> getAllUser(){
+    public List<Users> getAllUser(){
         return userService.getAllUser();
     }
 
     @GetMapping(path="{id}")
-    public User getUserById(@PathVariable("id") int id){
+    public Users getUserById(@PathVariable("id") int id){
         return userService.getUserById(id).orElse(null);
     }
 
@@ -38,7 +39,13 @@ public class UserController {
     }
 
     @PutMapping(path="{id}")
-    public void updateUser(@PathVariable("id") int id, @RequestBody User userToUpdate){
-        userService.updateUser(id, userToUpdate);
+    public ResponseEntity<Void> updateUser(@PathVariable("id") int id, @RequestBody Users userToUpdate){
+        if (userService.getUserById(id).isPresent()) {
+            userService.updateUser(id, userToUpdate);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
+
 }

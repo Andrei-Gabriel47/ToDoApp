@@ -1,4 +1,4 @@
-package com.bearingpoint.todo.api;
+package com.bearingpoint.todo.controller;
 
 import com.bearingpoint.todo.entity.Tasks;
 import com.bearingpoint.todo.service.TasksService;
