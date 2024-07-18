@@ -34,7 +34,7 @@ isCompleted Boolean default false,
 
 Create Table Subtasks
 (
-Id int Primary Key,
+Id int Auto_increment Primary Key,
 Task_Id int not null,
 Title varchar(250),
 Description varchar(250),
@@ -62,7 +62,7 @@ Insert Into Categories(Id,Name) Values(10,'Home');
 Insert Into Categories(Id,Name) Values(20,'Work');
 Insert Into Tasks(User_Id,Title,Description,Category_Id,Priority_Id) Values(1,'Water','Buy water from Supermarket',10,25);
 Insert Into Tasks(User_Id,Title,Description,Category_Id,Priority_Id) Values(1,'Food','Buy food from Supermarket for lunch time',20,25);
-Insert Into Subtasks(Id,Task_Id,Title,Description,Priority_Id) Values(1,1,'Trash','Take out the trash before leaving',25);
-Insert Into Subtasks(Id,Task_Id,Title,Description,Priority_Id) Values(2,1,'Dog','Take out the dog for a walk before leaving',15);
-Insert Into Subtasks(Id,Task_Id,Title,Description,Priority_Id) Values(3,2,'plastic bag','Take out the plastic before leaving',15);
+Insert Into Subtasks(Task_Id,Title,Description,Priority_Id) Values(1,'Trash','Take out the trash before leaving',25);
+Insert Into Subtasks(Task_Id,Title,Description,Priority_Id) Values(1,'Dog','Take out the dog for a walk before leaving',15);
+Insert Into Subtasks(Task_Id,Title,Description,Priority_Id) Values(2,'plastic bag','Take out the plastic before leaving',15);
 Insert Into TaskRecurrence(Task_Id,Due_Date,Reccurence_Type,Next_Due_Date) Values(1,'2024-05-12','Weekly','2024-05-19');
