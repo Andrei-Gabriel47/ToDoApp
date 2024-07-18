@@ -40,7 +40,7 @@ public class TaskService
         if(oldtask.isPresent())
         {
             Task updatedTask = oldtask.get();
-            updatedTask.setUser(task.getUser());
+            updatedTask.setUser_Id(task.getUser_Id());
             updatedTask.setCompleted(task.isCompleted());
             updatedTask.setCategory_Id(task.getCategory_Id());
             updatedTask.setTitle(task.getTitle());

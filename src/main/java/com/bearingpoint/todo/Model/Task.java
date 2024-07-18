@@ -1,35 +1,28 @@
 package com.bearingpoint.todo.Model;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "Tasks")
 public class Task
 {
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
-    @ManyToOne
-    @JoinColumn(name = "User_Id")
-    private User user;
-    @Column(name="Title")
+
+    private int User_Id;
+
+    public int getUser_Id() {
+        return User_Id;
+    }
+
+    public void setUser_Id(int user_Id) {
+        User_Id = user_Id;
+    }
+
+
     private String Title;
-    @Column(name = "Description")
+
     private String Description;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Column(name="Category_Id")
     private int Category_Id;
-    @Column(name = "Priority_Id")
+
     private int Priority_Id;
-    @Column(name = "isCompleted")
+
     private boolean isCompleted;
 
     public int getId() {
@@ -39,7 +32,6 @@ public class Task
     public void setId(int id) {
         Id = id;
     }
-
 
 
     public String getTitle() {

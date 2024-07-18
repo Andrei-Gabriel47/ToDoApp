@@ -66,5 +66,3 @@ Insert Into Subtasks(Id,Task_Id,Title,Description,Priority_Id) Values(1,1,'Trash
 Insert Into Subtasks(Id,Task_Id,Title,Description,Priority_Id) Values(2,1,'Dog','Take out the dog for a walk before leaving',15);
 Insert Into Subtasks(Id,Task_Id,Title,Description,Priority_Id) Values(3,2,'plastic bag','Take out the plastic before leaving',15);
 Insert Into TaskRecurrence(Task_Id,Due_Date,Reccurence_Type,Next_Due_Date) Values(1,'2024-05-12','Weekly','2024-05-19');
-
-

@@ -1,24 +1,11 @@
 package com.bearingpoint.todo.Model;
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "Users")
 
 public class User
 {
 
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private  int Id;
-
-    @Column(name = "Username")
     private String Username;
-
-    @Column(name = "Email")
     private String Email;
-
-    @Column(name = "Password")
     private String Password;
 
     public User() {
