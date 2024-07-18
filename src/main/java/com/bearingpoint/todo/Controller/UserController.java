@@ -31,7 +31,7 @@ public class UserController
     @PostMapping
     public void addUser(@RequestBody User user)
     {
-        System.out.println("Received User object: " + user.getUsername()+ user.getEmail());
+        System.out.println("Received User object: " + user.getId()+ user.getUsername()+ user.getEmail());
         userService.addUser(user);
     }
     @PutMapping(path = "{Id}")

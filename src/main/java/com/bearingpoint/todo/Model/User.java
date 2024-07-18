@@ -1,8 +1,16 @@
 package com.bearingpoint.todo.Model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table(name = "USERS")
 public class User
 {
 
+
+    @org.springframework.data.annotation.Id
+    @Column("ID")
     private  int Id;
     private String Username;
     private String Email;

@@ -1,9 +1,18 @@
 package com.bearingpoint.todo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table(name="TASKS")
 public class Task
 {
-    private int Id;
 
+    @org.springframework.data.annotation.Id
+    @Column("ID")
+    private int Id;
+    @Column("USER_ID")
     private int User_Id;
 
     public int getUser_Id() {
@@ -14,15 +23,15 @@ public class Task
         User_Id = user_Id;
     }
 
-
+    @Column("TITLE")
     private String Title;
-
+    @Column("DESCRIPTION")
     private String Description;
-
+    @Column("CATEGORY_ID")
     private int Category_Id;
-
+    @Column("PRIORITY_ID")
     private int Priority_Id;
-
+    @Column("ISCOMPLETED")
     private boolean isCompleted;
 
     public int getId() {
