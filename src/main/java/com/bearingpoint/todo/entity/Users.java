@@ -1,5 +1,6 @@
 package com.bearingpoint.todo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import jakarta.persistence.*;
@@ -14,14 +15,9 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id;
-
     private String username;
-
     private  String email;
-
     private String password;
-
-
 
     public Users() {
 

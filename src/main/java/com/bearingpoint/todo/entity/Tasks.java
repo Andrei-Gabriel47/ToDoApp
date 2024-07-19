@@ -9,15 +9,13 @@ import org.springframework.data.annotation.Id;
 public class Tasks {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
-
-
-  private int user_id;
-  private String title;
-  private String description ;
-  private int category_id;
-  private int priority_id;
-  private boolean isCompleted;
+    private int id;
+    private int user_id;
+    private String title;
+    private String description ;
+    private int category_id;
+    private int priority_id;
+    private boolean isCompleted;
 
     public Tasks() {}
 
