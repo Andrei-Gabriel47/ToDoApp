@@ -38,6 +38,7 @@ public class TaskRecurrenceService
         if(oldTaskRecurrence.isPresent())
         {
             TaskRecurrence updatedTaskRecurrence = oldTaskRecurrence.get();
+            updatedTaskRecurrence.setTask_Id(taskRecurrence.getTask_Id());
             updatedTaskRecurrence.setRecurrence_Type(taskRecurrence.getRecurrence_Type());
             updatedTaskRecurrence.setDue_date(taskRecurrence.getDue_date());
             updatedTaskRecurrence.setNext_Due_Date(taskRecurrence.getNext_Due_Date());

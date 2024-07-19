@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Table(name = "TASKRECURRENCE")
 public class TaskRecurrence {
     @Id
+    private int Id;
     @Column("TASK_ID")
     private int Task_Id;
     @Column("DUE_DATE")
@@ -46,6 +47,14 @@ public class TaskRecurrence {
 
     public void setNext_Due_Date(LocalDate next_Due_Date) {
         Next_Due_Date = next_Due_Date;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 
     @Column("NEXT_DUE_DATE")
